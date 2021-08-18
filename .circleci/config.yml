@@ -15,7 +15,7 @@ jobs:
       - run:
           name: Configure server
           command: |
-            ansible-playbook -i inventory main.yml --ssh-extra-args -o "StrictHostKeyChecking=no"
+            ansible-playbook -i inventory main.yml --ssh-extra-args -o --ssh-extra-args "StrictHostKeyChecking=no"
 workflows:
   build:
     jobs:
