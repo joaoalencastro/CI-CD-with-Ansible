@@ -11,6 +11,7 @@
     state: present
 
 - name: Copy index.html
+  become: true
   copy:
     src: index.html
     dest: /var/www/html/index.html
