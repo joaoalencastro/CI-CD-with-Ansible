@@ -1,0 +1,14 @@
+---
+- name: Update packages
+  apt:
+    update: yes
+
+- name: Install apache2
+  apt:
+    name: apache2
+    state: present
+
+- name: Copy index.html
+  copy:
+    src: index.html
+    dst: /var/www/html/index.html

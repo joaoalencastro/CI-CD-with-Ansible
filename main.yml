@@ -1,0 +1,6 @@
+---
+- name: Running basic Ansible plays
+  hosts: all
+  user: ubuntu
+  roles:
+    - setup
