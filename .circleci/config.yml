@@ -13,6 +13,10 @@ jobs:
           command: |
             apk add --update ansible
       - run:
+          name: Copy ecdsa sha2
+          command: |
+            echo "|1|wxHXZC4GsFH0u987zm0Kta8zppY=|5rnLCd1bsG6B4vcNu1b3wb3ltB4= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFtUlje4Nizg9Me4pcKNqsYjykYA4STkEjBJpiGq6rgxgTCBfXs2DdfU801W0q8iQJp2pxsYquXvEEejceHr6Mk=" >> ~/.ssh/known_hosts
+      - run:
           name: Configure server
           command: |
             ansible-playbook -i inventory main.yml --ssh-extra-args='-o StrictHostKeyChecking=no'
