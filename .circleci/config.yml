@@ -20,7 +20,21 @@ jobs:
           name: Configure server
           command: |
             ansible-playbook -i inventory main.yml --ssh-extra-args='-o StrictHostKeyChecking=no'
+  smoke_test:
+    docker:
+      - image: alpine:latest
+    steps:
+      - run:
+          name: Install dependencies
+          command: |
+            apk add --update curl
+      - run:
+          name: Smoke Test
+          command: |
+            curl -s --head "ec2-3-86-146-51.compute-1.amazonaws.com"
 workflows:
   build:
     jobs:
       - configure_infrastructure
+      - smoke_test:
+          requires: [configure_infrastrucure]
