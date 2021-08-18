@@ -19,7 +19,7 @@ jobs:
       - run:
           name: Configure server
           command: |
-            ansible-playbook -i inventory main.yml --ssh-extra-args='-o StrictHostKeyChecking=no'
+            ansible-playbook -i inventory main.yml
   smoke_test:
     docker:
       - image: alpine:latest
